@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Navbar = () => {
+  const [Menu, setMenu] = useState("home")
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm">
@@ -104,11 +105,11 @@ const Navbar = () => {
                   Profile
                 </a>
               </li>
-              <li><a>Home</a></li>
-              <li><a>Menu</a></li>
-              <li><a>Contact us</a></li>
-              <li><a>Settings</a></li>
-              <li><a>Logout</a></li>
+              <li><a href='/'>Home</a></li>
+              <li><a href='/menu'>Menu</a></li>
+              <li><a href='/cart'>Contact us</a></li>
+              <li><a href='/settings'>Settings</a></li>
+              <li><a href='/logout'>Logout</a></li>
             </ul>
           </div>
         </div>
