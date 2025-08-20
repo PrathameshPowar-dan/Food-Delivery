@@ -63,7 +63,7 @@ const Navbar = () => {
           </div>
         </div>
         <div className="navbar-center">
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <a className="btn btn-ghost text-xl"><a href="/">daisyUI</a></a>
         </div>
         <div className="navbar-end">
 
@@ -81,7 +81,7 @@ const Navbar = () => {
                 <span className="text-lg font-bold">8 Items</span>
                 <span className="text-info">Subtotal: $999</span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">View cart</button>
+                  <button className="btn btn-primary btn-block"><a href="/cart">View cart</a></button>
                 </div>
               </div>
             </div>
@@ -107,7 +107,7 @@ const Navbar = () => {
               </li>
               <li><a href='/'>Home</a></li>
               <li><a href='/menu'>Menu</a></li>
-              <li><a href='/cart'>Contact us</a></li>
+              <li><a href='/contact'>Contact us</a></li>
               <li><a href='/settings'>Settings</a></li>
               <li><a href='/logout'>Logout</a></li>
             </ul>
