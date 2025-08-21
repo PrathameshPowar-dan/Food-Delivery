@@ -27,31 +27,32 @@ export default function HeroSection() {
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
       {/* Animated Food Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        {foods.map((food, i) => (
-          <motion.div
-            key={i}
-            className="absolute text-6xl"
-            style={{
-              top: `${Math.random() * 80 + 10}%`,
-              left: `${Math.random() * 80 + 10}%`,
-            }}
-            animate={{
-              y: [0, -50, 0],
-              rotate: [0, 15, -15, 0],
-            }}
-            transition={{
-              duration: 10 + i * 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-          >
-            {food}
-          </motion.div>
-        ))}
-      </div>
+  {foods.map((food, i) => (
+    <motion.div
+      key={i}
+      className="absolute text-7xl sm:text-8xl opacity-70 drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+      style={{
+        top: `${Math.random() * 50 + 20}%`, // 20% to 70%
+        left: `${Math.random() * 80 + 10}%`, // still 10% to 90%
+      }}
+      animate={{
+        y: [0, -80, 0],
+        rotate: [0, 20, -20, 0],
+      }}
+      transition={{
+        duration: 15 + i * 2,
+        repeat: Infinity,
+        ease: "easeInOut",
+      }}
+    >
+      {food}
+    </motion.div>
+  ))}
+</div>
+
 
       {/* Overlay for readability */}
-      <div className="absolute inset-0 bg-base-100/40 backdrop-blur-sm -z-10" />
+      <div className="absolute inset-0 bg-base-100/40 backdrop-blur-xs -z-10" />
 
       {/* Content */}
       <div className="relative z-10 text-center px-6">
