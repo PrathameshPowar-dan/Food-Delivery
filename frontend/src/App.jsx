@@ -6,7 +6,7 @@ import Home from './pages/Home.jsx';
 import Cart from './pages/Cart.jsx';
 import PlaceOrder from './pages/PlaceOrder.jsx';
 import Settings from './pages/Setting.jsx';
-import { useThemeStore } from './Store/useThemeStore.js';
+import { useThemeStore } from './Context/useThemeStore.js';
 
 const App = () => {
   const { theme } = useThemeStore();

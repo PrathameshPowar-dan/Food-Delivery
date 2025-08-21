@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useThemeStore } from '../Store/useThemeStore';
+import { useThemeStore } from '../Context/useThemeStore';
 import { Link } from "react-router-dom";
 
 const Navbar = () => {
