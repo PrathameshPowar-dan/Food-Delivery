@@ -7,33 +7,33 @@ const FloatingBg = () => {
 
     return (
         <div className="absolute inset-0 -z-10 overflow-hidden">
-  {foods.map((food, i) => (
-    <motion.div
-      key={i}
-      className="absolute text-7xl sm:text-8xl opacity-70 drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
-      style={{
-        top: `${Math.random() * 50 + 20}%`, // 20% to 70%
-        left: `${Math.random() * 80 + 10}%`, // still 10% to 90%
-      }}
-      animate={{
-        y: [0, -80, 0],
-        rotate: [0, 20, -20, 0],
-      }}
-      transition={{
-        duration: 15 + i * 2,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    >
-      {food}
-    </motion.div>
-  ))}
-</div>
+            {foods.map((food, i) => (
+                <motion.div
+                    key={i}
+                    className="absolute text-7xl sm:text-8xl opacity-70 drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+                    style={{
+                        top: `${Math.random() * 50 + 20}%`, // 20% to 70%
+                        left: `${Math.random() * 80 + 10}%`, // still 10% to 90%
+                    }}
+                    animate={{
+                        y: [0, -80, 0],
+                        rotate: [0, 20, -20, 0],
+                    }}
+                    transition={{
+                        duration: 15 + i * 2,
+                        repeat: Infinity,
+                        ease: "easeInOut",
+                    }}
+                >
+                    {food}
+                </motion.div>
+            ))}
+        </div>
 
     );
 };
 
-const ExMenu = () => {
+const ExMenu = ({ Category, setCategory }) => {
     return (
         <section className="relative py-12 px-4 overflow-hidden">
             {/* Floating background */}
@@ -54,18 +54,36 @@ const ExMenu = () => {
             {/* Menu Categories */}
             <div className="flex flex-wrap justify-center gap-3 sm:gap-10 max-w-5xl mx-auto relative z-10">
                 {menu_list.map((item, idx) => (
-                    <div key={idx} className="flex flex-col items-center w-24 sm:w-28">
-                        <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 border-primary shadow-lg overflow-hidden hover:scale-105 transition">
+                    <div
+                        onClick={() =>
+                            setCategory(prev => prev === item.dish_name ? "All" : item.dish_name)
+                        }
+                        key={idx}
+                        className={`flex flex-col items-center w-24 sm:w-28 cursor-pointer transition-transform ${Category === item.dish_name ? "scale-110" : "hover:scale-105"
+                            }`}
+                    >
+                        <div
+                            className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 shadow-lg overflow-hidden transition-colors ${Category === item.dish_name
+                                ? "border-primary ring-4 ring-primary/40"
+                                : "border-base-300"
+                                }`}
+                        >
                             <img
                                 src={item.dish_image}
                                 alt={item.dish_name}
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        <p className="mt-2 text-sm sm:text-base font-medium text-base-content text-center">
+                        <p
+                            className={`mt-2 text-sm sm:text-base font-medium text-center ${Category === item.dish_name
+                                ? "text-primary"
+                                : "text-base-content"
+                                }`}
+                        >
                             {item.dish_name}
                         </p>
                     </div>
+
                 ))}
             </div>
         </section>
