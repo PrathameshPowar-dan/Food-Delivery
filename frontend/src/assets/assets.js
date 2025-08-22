@@ -1,20 +1,20 @@
 // src/menu_list.js
 
-import Bread from "../assets/Bread and Butter.jpg";
+import Bread from "../assets/BreadandButter.jpg";
 import Brownie from "../assets/Brownie.jpg";
 import Burger from "../assets/Burger.jpg";
-import CheesyPasta from "../assets/Cheesy Pasta.jpg";
-import ChocoCake from "../assets/Choco Cake.jpg";
+import CheesyPasta from "../assets/CheesyPasta.jpg";
+import ChocoCake from "../assets/ChocoCake.jpg";
 import Churo from "../assets/Churo.jpg";
-import FishChips from "../assets/Fish and Chips.jpg";
-import FriedFish from "../assets/Fried Fish.jpg";
-import FriedRice from "../assets/Fried Rice.jpg";
+import FishChips from "../assets/FishandChips.jpg";
+import FriedFish from "../assets/FriedFish.jpg";
+import FriedRice from "../assets/FriedRice.jpg";
 import Fries from "../assets/Fries.jpg";
-import FrostedDonuts from "../assets/Frosted Donuts.jpg";
-import MiniPizza from "../assets/Mini Pizza.jpg";
+import FrostedDonuts from "../assets/FrostedDonuts.jpg";
+import MiniPizza from "../assets/MiniPizza.jpg";
 import Noodles from "../assets/Noodles.jpg";
 import Pancakes from "../assets/Pancakes.jpg";
-import PizzaSet from "../assets/Pizza Set.jpg";
+import PizzaSet from "../assets/PizzaSet.jpg";
 import Ramen from "../assets/Ramen.jpg";
 import Onigiri from "../assets/Onigiri.jpg";
 import Sushi from "../assets/Sushi.jpg";

@@ -71,6 +71,7 @@ const ExMenu = ({ Category, setCategory }) => {
                             <img
                                 src={item.dish_image}
                                 alt={item.dish_name}
+                                loading="lazy"
                                 className="w-full h-full object-cover"
                             />
                         </div>
