@@ -1,10 +1,17 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useThemeStore } from '../Context/useThemeStore';
 import { Link } from "react-router-dom";
+import { StoreContext } from "../Context/StoreContext";
+import { food_list } from '../assets/assets';
 
-const Navbar = () => {
+const Navbar = ({ setShowLogin }) => {
   const [Menu, setMenu] = useState("home")
   const { theme, setTheme } = useThemeStore();
+  const { cartItems, getTotalCartAmount } = useContext(StoreContext);
+  const getCartCount = () => {
+    return Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);
+  };
+
 
   return (
     <>
@@ -95,8 +102,8 @@ const Navbar = () => {
             </div>
             <div tabIndex={0} className="card card-compact dropdown-content bg-base-100 z-50 mt-3 w-52 shadow">
               <div className="card-body border rounded-2xl">
-                <span className="text-lg font-bold">8 Items</span>
-                <span className="text-info">Subtotal: $999</span>
+                <span className="text-lg font-bold">{getCartCount()} Items</span>
+                <span className="text-info">Subtotal: ${getTotalCartAmount()}</span>
                 <div className="card-actions">
                   <button className="btn btn-primary btn-block">
                     <Link to="/cart">View cart</Link>
@@ -106,7 +113,9 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="dropdown dropdown-end pl-1.5">
+          <button className="btn btn-ghost" onClick={() => setShowLogin(true)}>Sign In</button>
+
+          {/* <div className="dropdown dropdown-end pl-1.5">
             <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <img
@@ -123,7 +132,7 @@ const Navbar = () => {
               <li><Link to="/settings">Settings</Link></li>
               <li><Link to="/logout">Logout</Link></li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

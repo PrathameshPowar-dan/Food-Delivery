@@ -24,31 +24,31 @@ export default function HeroSection() {
   const foods = ["🍔", "🍕", "🍣", "🍟", "🥗"];
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[90vh] z-0 flex items-center justify-center overflow-hidden">
       {/* Animated Food Background */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-  {foods.map((food, i) => (
-    <motion.div
-      key={i}
-      className="absolute text-7xl sm:text-8xl opacity-70 drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
-      style={{
-        top: `${Math.random() * 50 + 20}%`, // 20% to 70%
-        left: `${Math.random() * 80 + 10}%`, // still 10% to 90%
-      }}
-      animate={{
-        y: [0, -80, 0],
-        rotate: [0, 20, -20, 0],
-      }}
-      transition={{
-        duration: 15 + i * 2,
-        repeat: Infinity,
-        ease: "easeInOut",
-      }}
-    >
-      {food}
-    </motion.div>
-  ))}
-</div>
+        {foods.map((food, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-7xl sm:text-8xl opacity-70 drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+            style={{
+              top: `${Math.random() * 50 + 20}%`, // 20% to 70%
+              left: `${Math.random() * 80 + 10}%`, // still 10% to 90%
+            }}
+            animate={{
+              y: [0, -80, 0],
+              rotate: [0, 20, -20, 0],
+            }}
+            transition={{
+              duration: 15 + i * 2,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            {food}
+          </motion.div>
+        ))}
+      </div>
 
 
       {/* Overlay for readability */}

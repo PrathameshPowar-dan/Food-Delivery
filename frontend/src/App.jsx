@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar.jsx'
 import Footer from './components/Footer.jsx'
 import { Routes, Route } from 'react-router-dom';
@@ -7,6 +7,7 @@ import Cart from './pages/Cart.jsx';
 import PlaceOrder from './pages/PlaceOrder.jsx';
 import Settings from './pages/Setting.jsx';
 import { useThemeStore } from './Context/useThemeStore.js';
+import Login from './components/Login.jsx';
 
 const App = () => {
   const { theme } = useThemeStore();
@@ -16,9 +17,12 @@ const App = () => {
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
-    <div>
-      <Navbar />
+    <>
+      {showLogin ? <Login setShowLogin={setShowLogin} /> : <></>}
+      <Navbar setShowLogin={setShowLogin} />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/cart' element={<Cart />} />
@@ -26,7 +30,7 @@ const App = () => {
         <Route path='/settings' element={<Settings />} />
       </Routes>
       <Footer />
-    </div>
+    </>
   )
 }
 
