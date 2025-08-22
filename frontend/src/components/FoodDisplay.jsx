@@ -73,7 +73,7 @@ const FoodDisplay = ({ Category }) => {
               </div>
 
               {/* Content */}
-              <div className="p-4 flex flex-col justify-between h-40">
+              <div className="p-4 flex flex-col justify-between h-40 bg-black/3">
                 <div>
                   <h3 className="text-lg font-semibold text-base-content line-clamp-1">
                     {food.name}
