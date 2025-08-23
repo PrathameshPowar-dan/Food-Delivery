@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { StoreContext } from "../Context/StoreContext";
 import emptyCartImage from "../assets/empty-cart.png";
+import { Link, useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cartItems, food_list, addToCart, removeFromCart } =
@@ -17,6 +18,8 @@ const Cart = () => {
       return acc + (cartItems[item._id] ? item.price * cartItems[item._id] : 0);
     }, 0);
   };
+
+  const navigate = useNavigate();
 
   return (
     <div className="min-h-screen bg-base-200 py-10 px-4">
@@ -37,7 +40,9 @@ const Cart = () => {
             <p className="text-lg text-base-content/70">
               Your cart is empty. Start adding delicious items!
             </p>
-            <button className="btn btn-primary mt-6"><a href="/">Browse Menu</a></button>
+            <Link to="/" className="btn btn-primary mt-6">
+              Browse Menu
+            </Link>
           </div>
         ) : (
           <div className="grid lg:grid-cols-3 gap-8">
@@ -105,11 +110,19 @@ const Cart = () => {
                   <span>Total Items</span>
                   <span>{getCartCount()}</span>
                 </div>
-                <div className="flex justify-between mb-4 text-base-content/80">
+                <div className="flex justify-between mb-1 text-base-content/80">
                   <span>Subtotal</span>
                   <span>${getTotalPrice().toFixed(2)}</span>
                 </div>
-                <button className="btn btn-primary w-full">Proceed to Checkout</button>
+                <div className="flex justify-between mb-1 text-base-content/80">
+                  <span>Delivery Fee</span>
+                  <span>$2.00</span>
+                </div>
+                <div className="flex border justify-between mb-1 p-1 text-base-content/80">
+                  <span>Total</span>
+                  <span>${(getTotalPrice() + 2).toFixed(2)}</span>
+                </div>
+                <button onClick={() => navigate("/place-order")} className="btn btn-primary w-full">Proceed to Checkout</button>
               </div>
             </div>
           </div>

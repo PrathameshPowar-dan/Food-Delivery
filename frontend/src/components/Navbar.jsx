@@ -105,9 +105,9 @@ const Navbar = ({ setShowLogin }) => {
                 <span className="text-lg font-bold">{getCartCount()} Items</span>
                 <span className="text-info">Subtotal: ${getTotalCartAmount()}</span>
                 <div className="card-actions">
-                  <button className="btn btn-primary btn-block">
-                    <Link to="/cart">View cart</Link>
-                  </button>
+                  <Link to="/cart" className="btn btn-primary btn-block">
+                    View cart
+                  </Link>
                 </div>
               </div>
             </div>

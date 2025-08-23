@@ -23,6 +23,12 @@ export default function HeroSection() {
   // Floating food icons
   const foods = ["🍔", "🍕", "🍣", "🍟", "🥗"];
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
   return (
     <section className="relative min-h-[90vh] z-0 flex items-center justify-center overflow-hidden">
       {/* Animated Food Background */}
@@ -55,7 +61,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-base-100/40 backdrop-blur-xs -z-10" />
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6">
+      <div className="relative mt-6 md:mt-0 z-10 text-center px-6">
         {/* Small Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -108,11 +114,17 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
         >
-          <button className="btn btn-primary rounded-full px-8 py-3 text-lg shadow-lg">
-            <a href="#order" className="scroll-smooth">Order Now 🍔</a>
+          <button
+            onClick={() => scrollToSection("order")}
+            className="btn btn-primary"
+          >
+            Order Now 🍔
           </button>
-          <button className="btn btn-outline rounded-full px-8 py-3 text-lg">
-            <a href="#menu" className="scroll-smooth">View Menu 📖</a>
+          <button
+            onClick={() => scrollToSection("menu")}
+            className="btn btn-outline"
+          >
+            View Menu 📖
           </button>
         </motion.div>
 
