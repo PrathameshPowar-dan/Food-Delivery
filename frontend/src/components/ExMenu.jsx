@@ -35,7 +35,7 @@ const FloatingBg = () => {
 
 const ExMenu = ({ Category, setCategory }) => {
     return (
-        <section className="relative py-12 px-4 overflow-hidden">
+        <section className="relative py-12 px-4 overflow-hidden"  id="menu">
             {/* Floating background */}
             <FloatingBg />
             <div className="absolute inset-0 bg-base-100/20 backdrop-blur-xs -z-10" />

@@ -109,10 +109,10 @@ export default function HeroSection() {
           transition={{ delay: 1, duration: 0.8 }}
         >
           <button className="btn btn-primary rounded-full px-8 py-3 text-lg shadow-lg">
-            Order Now 🍔
+            <a href="#order" className="scroll-smooth">Order Now 🍔</a>
           </button>
           <button className="btn btn-outline rounded-full px-8 py-3 text-lg">
-            View Menu 📖
+            <a href="#menu" className="scroll-smooth">View Menu 📖</a>
           </button>
         </motion.div>
 
