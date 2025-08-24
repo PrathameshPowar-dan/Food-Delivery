@@ -4,8 +4,7 @@ const foodSchema = new Schema({
     name: {
         type: String,
         required: true,
-        trim: true,
-        unique: true
+        trim: true
     },
     description: {
         type: String,
@@ -19,8 +18,7 @@ const foodSchema = new Schema({
     image: {
         type: String,
         required: true,
-        trim: true,
-        unique: true
+        trim: true
     },
     category: {
         type: String,
