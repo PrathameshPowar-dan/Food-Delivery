@@ -53,7 +53,7 @@ export const food_list = [
     image: Bread,
     price: 5.99,
     description: "A classic combination of bread and butter.",
-    Category: "American"
+    category: "American"
   },
   {
     _id: "2",
@@ -61,7 +61,7 @@ export const food_list = [
     image: Brownie,
     price: 3.99,
     description: "A rich chocolate brownie.",
-    Category: "Desserts"
+    category: "Desserts"
   },
   {
     _id: "3",
@@ -69,7 +69,7 @@ export const food_list = [
     image: Burger,
     price: 8.99,
     description: "A juicy beef burger with cheese.",
-    Category: "American"
+    category: "American"
   },
   {
     _id: "4",
@@ -77,7 +77,7 @@ export const food_list = [
     image: CheesyPasta,
     price: 7.99,
     description: "Creamy pasta with cheese.",
-    Category: "Italian"
+    category: "Italian"
   },
   {
     _id: "5",
@@ -85,7 +85,7 @@ export const food_list = [
     image: ChocoCake,
     price: 4.99,
     description: "A rich chocolate cake.",
-    Category: "Desserts"
+    category: "Desserts"
   },
   {
     _id: "6",
@@ -93,7 +93,7 @@ export const food_list = [
     image: Churo,
     price: 3.49,
     description: "Delicious fried dough pastries.",
-    Category: "Desserts"
+    category: "Desserts"
   },
   {
     _id: "7",
@@ -101,7 +101,7 @@ export const food_list = [
     image: FriedRice,
     price: 6.99,
     description: "A flavorful mix of rice and vegetables.",
-    Category: "Mexican"
+    category: "Mexican"
   },
   {
     _id: "8",
@@ -109,7 +109,7 @@ export const food_list = [
     image: Fries,
     price: 2.99,
     description: "Crispy golden fries.",
-    Category: "American"
+    category: "American"
   },
   {
     _id: "9",
@@ -117,7 +117,7 @@ export const food_list = [
     image: FishChips,
     price: 9.99,
     description: "Crispy fish and chips.",
-    Category: "American"
+    category: "American"
   },
   {
     _id: "10",
@@ -125,7 +125,7 @@ export const food_list = [
     image: FriedFish,
     price: 8.99,
     description: "Crispy fried fish with tartar sauce.",
-    Category: "American"
+    category: "American"
   },
   {
     _id: "11",
@@ -133,7 +133,7 @@ export const food_list = [
     image: Sushi,
     price: 12.99,
     description: "Fresh sushi rolls with a variety of fillings.",
-    Category: "Japanese"
+    category: "Japanese"
   },
   {
     _id: "12",
@@ -141,7 +141,7 @@ export const food_list = [
     image: Takoyaki,
     price: 9.99,
     description: "Delicious octopus balls drizzled with sauce.",
-    Category: "Japanese"
+    category: "Japanese"
   },
   {
     _id: "13",
@@ -149,7 +149,7 @@ export const food_list = [
     image: Bento,
     price: 11.99,
     description: "A traditional Japanese lunch box with rice, fish, and vegetables.",
-    Category: "Japanese"
+    category: "Japanese"
   },
   {
     _id: "14",
@@ -157,7 +157,7 @@ export const food_list = [
     image: Onigiri,
     price: 2.99,
     description: "A traditional Japanese rice ball filled with various ingredients.",
-    Category: "Japanese"
+    category: "Japanese"
   },
   // Additional food items using the remaining imports
   {
@@ -166,7 +166,7 @@ export const food_list = [
     image: FrostedDonuts,
     price: 4.50,
     description: "Glazed, frosted donuts perfect for a quick snack.",
-    Category: "Desserts"
+    category: "Desserts"
   },
   {
     _id: "16",
@@ -174,7 +174,7 @@ export const food_list = [
     image: MiniPizza,
     price: 6.50,
     description: "A small, delicious pizza.",
-    Category: "Italian"
+    category: "Italian"
   },
   {
     _id: "17",
@@ -182,7 +182,7 @@ export const food_list = [
     image: Noodles,
     price: 7.50,
     description: "Stir-fried noodles with vegetables.",
-    Category: "Japanese"
+    category: "Japanese"
   },
   {
     _id: "18",
@@ -190,7 +190,7 @@ export const food_list = [
     image: Pancakes,
     price: 5.50,
     description: "Fluffy pancakes served with syrup.",
-    Category: "Desserts"
+    category: "Desserts"
   },
   {
     _id: "19",
@@ -198,7 +198,7 @@ export const food_list = [
     image: PizzaSet,
     price: 12.99,
     description: "A set of delicious pizza slices.",
-    Category: "Italian"
+    category: "Italian"
   },
   {
     _id: "20",
@@ -206,7 +206,7 @@ export const food_list = [
     image: Ramen,
     price: 9.99,
     description: "Traditional Japanese ramen noodles in a rich broth.",
-    Category: "Japanese"
+    category: "Japanese"
   },
   {
     _id: "21",
@@ -214,7 +214,7 @@ export const food_list = [
     image: Taco,
     price: 3.99,
     description: "A delicious taco with various fillings.",
-    Category: "Mexican"
+    category: "Mexican"
   },
   {
     _id: "22",
@@ -222,6 +222,6 @@ export const food_list = [
     image: Enchiladas,
     price: 7.99,
     description: "Corn tortillas stuffed with meat and cheese.",
-    Category: "Mexican"
+    category: "Mexican"
   }
 ];

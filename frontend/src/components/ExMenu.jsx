@@ -33,7 +33,7 @@ const FloatingBg = () => {
     );
 };
 
-const ExMenu = ({ Category, setCategory }) => {
+const ExMenu = ({ category, setcategory }) => {
     return (
         <section className="relative py-12 px-4 overflow-hidden"  id="menu">
             {/* Floating background */}
@@ -56,14 +56,14 @@ const ExMenu = ({ Category, setCategory }) => {
                 {menu_list.map((item, idx) => (
                     <div
                         onClick={() =>
-                            setCategory(prev => prev === item.dish_name ? "All" : item.dish_name)
+                            setcategory(prev => prev === item.dish_name ? "All" : item.dish_name)
                         }
                         key={idx}
-                        className={`flex flex-col items-center w-24 sm:w-28 cursor-pointer transition-transform ${Category === item.dish_name ? "scale-110" : "hover:scale-105"
+                        className={`flex flex-col items-center w-24 sm:w-28 cursor-pointer transition-transform ${category === item.dish_name ? "scale-110" : "hover:scale-105"
                             }`}
                     >
                         <div
-                            className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 shadow-lg overflow-hidden transition-colors ${Category === item.dish_name
+                            className={`w-20 h-20 sm:w-24 sm:h-24 rounded-full border-4 shadow-lg overflow-hidden transition-colors ${category === item.dish_name
                                 ? "border-primary ring-4 ring-primary/40"
                                 : "border-base-300"
                                 }`}
@@ -76,7 +76,7 @@ const ExMenu = ({ Category, setCategory }) => {
                             />
                         </div>
                         <p
-                            className={`mt-2 text-sm sm:text-base font-medium text-center ${Category === item.dish_name
+                            className={`mt-2 text-sm sm:text-base font-medium text-center ${category === item.dish_name
                                 ? "text-primary"
                                 : "text-base-content"
                                 }`}

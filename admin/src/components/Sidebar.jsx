@@ -12,7 +12,7 @@ const Sidebar = () => {
   ];
 
   return (
-    <aside className="h-[calc(100vh-64px)] w-[22vw] md:w-50 bg-base-200 shadow-md flex flex-col">
+    <aside className="h-[calc(100vh-64px)] w-[22vw] md:w-[14vw] border-r border-r-base-200 bg-base-200 shadow-md flex flex-col">
       {/* Logo / Brand */}
       <div className="p-3 flex justify-center items-center md:block border-b border-base-300">
         <h1 className="text-2xl hidden md:block font-bold text-primary">Dan's DEN</h1>

@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { StoreContext } from "../Context/StoreContext";
 import { motion } from "framer-motion";
 
-const FoodDisplay = ({ Category }) => {
+const FoodDisplay = ({ category }) => {
   const { food_list, cartItems, addToCart, removeFromCart } =
     useContext(StoreContext);
 
@@ -11,7 +11,7 @@ const FoodDisplay = ({ Category }) => {
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-3xl sm:text-4xl font-bold text-base-content">
-          {Category === "All" ? "All Foods" : Category}
+          {category === "All" ? "All Foods" : category}
         </h2>
         <p className="mt-3 text-base sm:text-lg text-base-content/70">
           Delicious dishes carefully selected just for you 🍴
@@ -21,7 +21,7 @@ const FoodDisplay = ({ Category }) => {
       {/* Food Grid */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {food_list
-          .filter((food) => Category === "All" || food.Category === Category)
+          .filter((food) => category === "All" || food.category === category)
           .map((food, idx) => (
             <motion.div
               key={food._id}
@@ -86,7 +86,7 @@ const FoodDisplay = ({ Category }) => {
                   <span className="text-lg font-bold text-primary">
                     ${food.price}
                   </span>
-                  <span className="badge badge-outline">{food.Category}</span>
+                  <span className="badge badge-outline">{food.category}</span>
                 </div>
               </div>
             </motion.div>

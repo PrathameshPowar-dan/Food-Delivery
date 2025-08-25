@@ -20,7 +20,7 @@ export const addFood = asyncHandler(async (req, res) => {
     }
 
     if (!category) {
-        throw new ApiError(400, "All Category are required");
+        throw new ApiError(400, "All category are required");
     }
 
     // if (!image) {
