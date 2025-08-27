@@ -87,26 +87,8 @@ const Navbar = ({ setShowLogin }) => {
                 </div>
                 <div className="navbar-end">
 
-                    <button className="btn btn-ghost" onClick={() => setShowLogin(true)}>Sign In</button>
+                    <button className="bg-base-300 btn btn-ghost">ADMIN</button>
 
-                    {/* <div className="dropdown dropdown-end pl-1.5">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
-              </div>
-            </div>
-            <ul tabIndex={0} className="menu menu-sm border dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
-              <li><Link to="/profile">Profile</Link></li>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/menu">Menu</Link></li>
-              <li><Link to="/contact">Contact us</Link></li>
-              <li><Link to="/settings">Settings</Link></li>
-              <li><Link to="/logout">Logout</Link></li>
-            </ul>
-          </div> */}
                 </div>
             </div>
         </>

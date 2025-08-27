@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"
+import { toast } from 'react-toastify';
 const Add = () => {
   const [preview, setPreview] = useState(null);
   const url = "http://localhost:3000";
@@ -35,7 +36,7 @@ const Add = () => {
 
     const response = await axios.post(`${url}/api/food/add`,formData);
     if (response.data.success) {
-      alert("Food item added successfully!");
+      toast.success("Food item added successfully");
       setData({
         name: "",
         description: "",
@@ -44,9 +45,8 @@ const Add = () => {
         image: null,
       });
       setPreview(null);
-      console.log("Food item added:", response.data.foodItem);
     } else{
-      console.log("Error adding food item");
+      toast.error("Failed to add food item");
     }
   }
 

@@ -5,10 +5,12 @@ import { Routes, Route } from 'react-router-dom'
 import Add from './pages/Add.jsx'
 import List from './pages/List.jsx'
 import Order from './pages/Order.jsx'
+import { ToastContainer, toast } from 'react-toastify';
 
 const App = () => {
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <div className="flex">
         <Sidebar />
