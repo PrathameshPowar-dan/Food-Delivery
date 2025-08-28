@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import foodRouter from "./routes/foodRoutes.js";
+import userRouter from "./routes/userRoutes.js";
 
 const app = express();
 
@@ -17,5 +18,6 @@ app.use(cors({
 }))
 
 app.use("/api/food", foodRouter);
+app.use("/api/user", userRouter);
 
 export {app}

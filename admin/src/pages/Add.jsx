@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios"
 import { toast } from 'react-toastify';
-const Add = () => {
+const Add = ({url}) => {
   const [preview, setPreview] = useState(null);
-  const url = "http://localhost:3000";
+  
   const [data, setData] = useState({
     name: "",
     description: "",
