@@ -13,9 +13,9 @@ const options = {
 }
 
 export const registerUser = asyncHandler(async (req, res) => {
-    const { username , email , password } = req.body;
+    const { name, email, password } = req.body;
 
-    const requiredFields = { email, username, password };
+    const requiredFields = { email, name, password };
 
     for (const [fieldName, fieldValue] of Object.entries(requiredFields)) {
         if (typeof fieldValue !== 'string' || !fieldValue.trim()) {
@@ -23,12 +23,12 @@ export const registerUser = asyncHandler(async (req, res) => {
         }
     }
 
-    if (password.length < 5) {
-        throw new ApiError(400, "Password must be atleast 6 letters")
+    if (password.length < 6) {
+        throw new ApiError(400, "Password must be at least 6 characters")
     }
 
     const ExistingUser = await User.findOne({
-        $or: [{ username }, { email }]
+        $or: [{ name }, { email }]
     })
 
     if (ExistingUser) {
@@ -38,7 +38,7 @@ export const registerUser = asyncHandler(async (req, res) => {
     const user = await User.create({
         email,
         password,
-        username
+        name
     });
 
     const Token = user.generateToken();
@@ -50,9 +50,43 @@ export const registerUser = asyncHandler(async (req, res) => {
     }
 
     return res
-        .status(200)
+        .status(201) // changed to 201 Created
         .cookie("Token", Token, options)
         .json(
-            new ApiResponse(200, CreatedUser, "User Registered Successfully")
+            new ApiResponse(201, CreatedUser, "User Registered Successfully")
         )
+})
+
+export const loginUser = asyncHandler(async (req, res) => {
+    const { email, password } = req.body;
+
+    const requiredFields = { email, password };
+    for (const [fieldName, fieldValue] of Object.entries(requiredFields)) {
+        if (typeof fieldValue !== 'string' || !fieldValue.trim()) {
+            throw new ApiError(400, `${fieldName.charAt(0).toUpperCase() + fieldName.slice(1)} is required`);
+        }
+    }
+
+    const user = await User.findOne({email});
+    
+    if (!user) {
+        throw new ApiError(404, "User not found");
+    }
+
+    const PasswordValidation = await user.isPasswordCorrect(password);
+
+    if (!PasswordValidation) {
+        throw new ApiError(401, "Invalid password");
+    }
+
+    const Token = user.generateToken();
+
+    const LoggedInUser = await User.findById(user._id).select("-password");
+
+    return res.status(200).cookie("Token",Token,options).json(new ApiResponse(200, LoggedInUser, "LOGGED IN SUCCESSFULLY"));
+})
+
+export const logoutUser = asyncHandler(async (req, res) => {
+    res.clearCookie("Token", options);
+    return res.status(200).json(new ApiResponse(200, null, "LOGGED OUT SUCCESSFULLY"));
 })

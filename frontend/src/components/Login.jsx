@@ -1,7 +1,35 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { axiosInstance } from '../Context/axios';
 
 const Login = ({ setShowLogin }) => {
     const [currState, setCurrState] = useState("Sign In")
+    const [data, setdata] = useState({
+        name: "",
+        email: "",
+        password: ""
+    })
+
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setdata((prev) => ({ ...prev, [name]: value }));
+    }
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        try {
+            const response = await axiosInstance.post(
+              `/user/${currState === "Login" ? "login" : "register"}`,
+              data
+            );
+            console.log(response.data);
+            if (response.data.success) {
+                setShowLogin(false);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }
 
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 px-4">
@@ -20,16 +48,20 @@ const Login = ({ setShowLogin }) => {
                         {currState === "Login" ? "Login" : "Create Account"}
                     </h2>
 
-                    <div className="space-y-4">
-                        {/* Username */}
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        {/* name */}
                         {currState === "Login" ? null : (
                             <div>
                                 <label className="label">
-                                    <span className="label-text font-medium">Username</span>
+                                    <span className="label-text font-medium">name</span>
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Enter your username"
+                                    name="name"
+                                    onChange={handleChange}
+                                    value={data.name}
+                                    required
+                                    placeholder="Enter your name"
                                     className="input input-bordered w-full"
                                 />
                             </div>
@@ -42,6 +74,10 @@ const Login = ({ setShowLogin }) => {
                             </label>
                             <input
                                 type="email"
+                                name="email"
+                                onChange={handleChange}
+                                value={data.email}
+                                required
                                 placeholder="Enter your email"
                                 className="input input-bordered w-full"
                             />
@@ -54,26 +90,20 @@ const Login = ({ setShowLogin }) => {
                             </label>
                             <input
                                 type="password"
+                                name='password'
+                                onChange={handleChange}
+                                value={data.password}
+                                required
                                 placeholder="Enter your password"
                                 className="input input-bordered w-full"
                             />
                         </div>
 
-                        {/* Terms */}
-                        {currState !== "Login" && (
-                            <div className="flex items-center gap-2">
-                                <input type="checkbox" className="checkbox checkbox-primary" />
-                                <span className="text-sm text-base-content/80">
-                                    I agree to the Terms & Conditions
-                                </span>
-                            </div>
-                        )}
-
                         {/* Submit */}
-                        <button className="btn btn-primary w-full">
+                        <button type="submit" className="btn btn-primary w-full">
                             {currState === "Login" ? "Login" : "Sign Up"}
                         </button>
-                    </div>
+                    </form>
 
                     {/* Footer */}
                     <p className="mt-4 text-center text-sm text-base-content/70">
@@ -81,7 +111,7 @@ const Login = ({ setShowLogin }) => {
                             <>Don't have an account?{" "}
                                 <span
                                     className="link link-primary cursor-pointer"
-                                    onClick={() => setCurrState("SignUp")}
+                                    onClick={() => setCurrState("Sign Up")}
                                 >
                                     Create one
                                 </span>

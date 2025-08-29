@@ -16,6 +16,8 @@ export const StoreContextProvider = (props) => {
         }
     };
 
+
+
     const removeFromCart = (itemId) => {
         setCartItems((prev) => ({...prev,[itemId]: prev[itemId] - 1}));
     }
@@ -33,9 +35,9 @@ export const StoreContextProvider = (props) => {
     return total.toFixed(2);
 };
 
-    useEffect(()=>{
-        console.log(cartItems);
-    }, [cartItems])
+    // useEffect(()=>{
+    //     console.log(cartItems);
+    // }, [cartItems])
 
     const contextValue = {
         food_list,

@@ -11,9 +11,9 @@ cloudinary.config({
 });
 
 /**
- * Uploads file to Cloudinary with custom filename (username-email)
+ * Uploads file to Cloudinary with custom filename (name-email)
  * @param {string} localFilePath - Path of the file on local disk
- * @param {string} username - Username to include in Cloudinary file name
+ * @param {string} name - name to include in Cloudinary file name
  * @param {string} email - Email to include in Cloudinary file name
  * @param {string} folder - (Optional) Folder name in Cloudinary
  */
