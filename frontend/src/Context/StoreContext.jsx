@@ -8,12 +8,15 @@ export const StoreContextProvider = (props) => {
 
     const [cartItems, setCartItems] = useState({});
 
-    const addToCart = (itemId) => {
+    const addToCart = async (itemId) => {
         if (!cartItems[itemId]) {
             setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
         }
         else {
             setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }));
+        }
+        if (LOGGEDIN) {
+            await axiosInstance.post('/cart/add', { itemId: itemId });
         }
     };
 
@@ -21,15 +24,18 @@ export const StoreContextProvider = (props) => {
 
     const [food_list, setFOODLIST] = useState([])
 
-    const FoodList = async()=>{
+    const FoodList = async () => {
         const response = await axiosInstance.get('/food/list');
         if (response.data.success) {
             setFOODLIST(response.data.data);
         }
     }
 
-    const removeFromCart = (itemId) => {
+    const removeFromCart = async (itemId) => {
         setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] - 1 }));
+        if (LOGGEDIN) {
+            await axiosInstance.post('/cart/remove', { itemId: itemId });
+        }
     }
 
     const getTotalCartAmount = () => {
@@ -45,8 +51,8 @@ export const StoreContextProvider = (props) => {
         return total.toFixed(2);
     };
 
-    useEffect(()=>{
-       FoodList()
+    useEffect(() => {
+        FoodList()
     }, [])
 
     const contextValue = {
