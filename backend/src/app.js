@@ -3,6 +3,7 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import foodRouter from "./routes/foodRoutes.js";
 import userRouter from "./routes/userRoutes.js";
+import cartRouter from "./routes/cartRoutes.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(cors({
 
 app.use("/api/food", foodRouter);
 app.use("/api/user", userRouter);
+app.use("/api/cart", cartRouter);
 
 app.use(errorHandler);
 

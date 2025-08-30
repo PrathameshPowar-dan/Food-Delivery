@@ -6,10 +6,10 @@ import User from "../models/user.model.js";
 const isProduction = process.env.NODE_ENV === 'production';
 
 const options = {
-  maxAge: 7 * 24 * 60 * 60 * 1000,
-  httpOnly: true,
-  sameSite: "strict",
-  secure: isProduction,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+    sameSite: "strict",
+    secure: isProduction,
 }
 
 export const registerUser = asyncHandler(async (req, res) => {
@@ -67,8 +67,8 @@ export const loginUser = asyncHandler(async (req, res) => {
         }
     }
 
-    const user = await User.findOne({email});
-    
+    const user = await User.findOne({ email });
+
     if (!user) {
         throw new ApiError(404, "User not found");
     }
@@ -83,7 +83,7 @@ export const loginUser = asyncHandler(async (req, res) => {
 
     const LoggedInUser = await User.findById(user._id).select("-password");
 
-    return res.status(200).cookie("Token",Token,options).json(new ApiResponse(200, LoggedInUser, "LOGGED IN SUCCESSFULLY"));
+    return res.status(200).cookie("Token", Token, options).json(new ApiResponse(200, LoggedInUser, "LOGGED IN SUCCESSFULLY"));
 })
 
 export const logoutUser = asyncHandler(async (req, res) => {
@@ -91,11 +91,11 @@ export const logoutUser = asyncHandler(async (req, res) => {
     return res.status(200).json(new ApiResponse(200, null, "LOGGED OUT SUCCESSFULLY"));
 })
 
-export const Check =asyncHandler(async(req,res)=>{
+export const Check = asyncHandler(async (req, res) => {
     try {
-        const data = req.data;
+        const data = req.user;
         res.status(200).json(new ApiResponse(200, data, "Token is valid"));
     } catch (error) {
-        throw new ApiError(500,"Internal ERROR")
+        throw new ApiError(500, "Internal ERROR")
     }
 })
