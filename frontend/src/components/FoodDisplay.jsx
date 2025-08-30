@@ -20,8 +20,7 @@ const FoodDisplay = ({ category }) => {
 
       {/* Food Grid */}
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {food_list
-          .filter((food) => category === "All" || food.category === category)
+        {food_list.filter((food) => category === "All" || food.category === category)
           .map((food, idx) => (
             <motion.div
               key={food._id}

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { axiosInstance } from '../Context/axios';
+import { StoreContext } from '../Context/StoreContext';
 
 const Login = ({ setShowLogin }) => {
     const [currState, setCurrState] = useState("Sign In")
@@ -9,6 +10,7 @@ const Login = ({ setShowLogin }) => {
         password: ""
     })
 
+    const { LOGGEDIN, setLOGGEDIN } = useContext(StoreContext);
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,12 +21,13 @@ const Login = ({ setShowLogin }) => {
         e.preventDefault();
         try {
             const response = await axiosInstance.post(
-              `/user/${currState === "Login" ? "login" : "register"}`,
-              data
+                `/user/${currState === "Login" ? "login" : "register"}`,
+                data
             );
             console.log(response.data);
             if (response.data.success) {
                 setShowLogin(false);
+                setLOGGEDIN(true);
             }
         } catch (error) {
             console.error(error);

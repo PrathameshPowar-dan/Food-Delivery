@@ -2,14 +2,30 @@ import React, { useContext, useState } from 'react'
 import { useThemeStore } from '../Context/useThemeStore';
 import { Link } from "react-router-dom";
 import { StoreContext } from "../Context/StoreContext";
-import { food_list } from '../assets/assets';
+import { axiosInstance } from '../Context/axios.js';
 
 const Navbar = ({ setShowLogin }) => {
   const [Menu, setMenu] = useState("home")
   const { theme, setTheme } = useThemeStore();
   const { cartItems, getTotalCartAmount } = useContext(StoreContext);
+  const { LOGGEDIN, setLOGGEDIN, url } = useContext(StoreContext);
   const getCartCount = () => {
     return Object.values(cartItems).reduce((sum, qty) => sum + qty, 0);
+  };
+
+  const handleLogout = async () => {
+    const response = await axiosInstance.post('/user/logout');
+    console.log(response.data);
+    if (response.data.success) {
+      setLOGGEDIN(false);
+    }
+  }
+
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
 
@@ -113,26 +129,30 @@ const Navbar = ({ setShowLogin }) => {
             </div>
           </div>
 
-          <button className="btn btn-ghost" onClick={() => setShowLogin(true)}>Sign In</button>
-
-          {/* <div className="dropdown dropdown-end pl-1.5">
-            <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+          {!LOGGEDIN
+            ?
+            <button className="btn btn-ghost" onClick={() => setShowLogin(true)}>Sign In</button>
+            :
+            <div className="dropdown dropdown-end pl-1.5">
+              <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
               </div>
-            </div>
-            <ul tabIndex={0} className="menu menu-sm border dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
-              <li><Link to="/profile">Profile</Link></li>
-              <li><Link to="/">Home</Link></li>
-              <li><Link to="/menu">Menu</Link></li>
-              <li><Link to="/contact">Contact us</Link></li>
-              <li><Link to="/settings">Settings</Link></li>
-              <li><Link to="/logout">Logout</Link></li>
-            </ul>
-          </div> */}
+              <ul tabIndex={0} className="menu menu-sm border dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
+                <li><Link to="/">Home</Link></li>
+                <li><Link onClick={() => scrollToSection("menu")}>Menu</Link></li>
+                <li><Link to="/contact">Contact us</Link></li>
+                <li><Link to="/settings">Settings</Link></li>
+                <li><Link onClick={handleLogout}>Logout</Link></li>
+              </ul>
+            </div>}
+
+
+
         </div>
       </div>
     </>

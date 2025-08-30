@@ -90,3 +90,12 @@ export const logoutUser = asyncHandler(async (req, res) => {
     res.clearCookie("Token", options);
     return res.status(200).json(new ApiResponse(200, null, "LOGGED OUT SUCCESSFULLY"));
 })
+
+export const Check =asyncHandler(async(req,res)=>{
+    try {
+        const data = req.data;
+        res.status(200).json(new ApiResponse(200, data, "Token is valid"));
+    } catch (error) {
+        throw new ApiError(500,"Internal ERROR")
+    }
+})
