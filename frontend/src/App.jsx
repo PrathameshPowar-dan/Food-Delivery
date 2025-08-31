@@ -26,7 +26,6 @@ const App = () => {
   const CheckAuth = async () => {
     try {
       const response = await axiosInstance.get("/user/check");
-      console.log("CheckAuth response:", response.data);
       if (response.data.success) {
         setLOGGEDIN(true);
         setShowLogin(false);
