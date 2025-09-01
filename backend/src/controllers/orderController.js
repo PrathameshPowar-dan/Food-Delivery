@@ -9,39 +9,39 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 export const placeOrder = asyncHandler(async (req, res) => {
     try {
-        
+
         const newOrder = new Order({
-            userId: req.user._id.toString(), 
+            userId: req.user._id.toString(),
             items: req.body.items,
             address: req.body.address,
-            amount: req.body.amount, 
-            payment: false 
+            amount: req.body.amount,
+            payment: false
         });
-        
+
         await newOrder.save();
-        
+
 
         await User.findByIdAndUpdate(req.user._id, { cartData: {} });
 
         const line_items = req.body.items.map(item => ({
             price_data: {
                 currency: "inr",
-                product_data: { 
+                product_data: {
                     name: item.name,
                 },
-                unit_amount: item.price * 100 * 88 
+                unit_amount: item.price * 100 * 88
             },
             quantity: item.quantity
         }));
 
-        
+
         line_items.push({
             price_data: {
                 currency: "inr",
                 product_data: {
                     name: "Delivery Charges"
                 },
-                unit_amount: 2 * 100 * 88 
+                unit_amount: 2 * 100 * 88
             },
             quantity: 1
         });
@@ -54,12 +54,12 @@ export const placeOrder = asyncHandler(async (req, res) => {
         });
 
         return res.status(200).json(
-            new ApiResponse(200, { 
-                success: true, 
-                session_url: session.url 
+            new ApiResponse(200, {
+                success: true,
+                session_url: session.url
             }, "Order placed successfully")
         );
-        
+
     } catch (error) {
         console.log("Order placement error:", error);
         throw new ApiError("Failed to place order", 500);
@@ -67,19 +67,26 @@ export const placeOrder = asyncHandler(async (req, res) => {
 });
 
 export const verifyOrder = asyncHandler(async (req, res) => {
-    const {orderId , success} = req.body;
+    const { orderId, success } = req.body;
     try {
-        if (success==="true") {
+        if (success === "true") {
             await Order.findByIdAndUpdate(orderId, { payment: true });
             return res.status(200).json(
                 new ApiResponse(200, { success: true }, "Order verified successfully")
             );
-        } else{
+        } else {
             await Order.findByIdAndDelete(orderId);
             return res.status(400).json(new ApiResponse(400, { success: false }, "Order verification failed"));
         }
     } catch (error) {
         console.log("Order verification error:", error);
-        throw new ApiError(500,"Failed to verify order");
+        throw new ApiError(500, "Failed to verify order");
     }
+})
+
+export const getOrders = asyncHandler(async (req, res) => {
+    const orders = await Order.find({ userId: req.user._id });
+    return res.status(200).json(
+        new ApiResponse(200, orders, "Orders fetched successfully")
+    );
 })

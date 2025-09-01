@@ -5,12 +5,13 @@ import { Routes, Route } from 'react-router-dom';
 import Home from './pages/Home.jsx';
 import Cart from './pages/Cart.jsx';
 import PlaceOrder from './pages/PlaceOrder.jsx';
-import Settings from './pages/Setting.jsx';
 import { useThemeStore } from './Context/useThemeStore.js';
 import Login from './components/Login.jsx';
 import { axiosInstance } from './Context/axios.js';
 import { StoreContext } from './Context/StoreContext.jsx';
 import Verify from './pages/verify.jsx';
+import MyOrders from './pages/myorders.jsx';
+import Contact from './pages/Contact.jsx';
 
 const App = () => {
   const { theme } = useThemeStore();
@@ -47,8 +48,9 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/cart' element={<Cart />} />
         <Route path='/place-order' element={<PlaceOrder />} />
-        <Route path='/settings' element={<Settings />} />
         <Route path='/verify' element={<Verify />} />
+        <Route path='/myorders' element={<MyOrders />} />
+        <Route path='/contact' element={<Contact />} />
       </Routes>
       <Footer />
     </>

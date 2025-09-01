@@ -80,6 +80,28 @@ const Navbar = ({ setShowLogin }) => {
                   type="radio"
                   name="theme-dropdown"
                   className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Luxury"
+                  value="luxury"
+                  checked={theme === "luxury"}
+                  onChange={() => setTheme("luxury")}
+                />
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Caramellatte"
+                  value="caramellatte"
+                  checked={theme === "caramellatte"}
+                  onChange={() => setTheme("caramellatte")}
+                />
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
                   aria-label="Valentine"
                   value="valentine"
                   checked={theme === "valentine"}
@@ -147,8 +169,8 @@ const Navbar = ({ setShowLogin }) => {
               <ul tabIndex={0} className="menu menu-sm border dropdown-content bg-base-100 rounded-box z-50 mt-3 w-52 p-2 shadow">
                 <li><Link to="/">Home</Link></li>
                 <li><Link onClick={() => scrollToSection("menu")}>Menu</Link></li>
+                <li><Link to="/myorders">My Orders</Link></li>
                 <li><Link to="/contact">Contact us</Link></li>
-                <li><Link to="/settings">Settings</Link></li>
                 <li><Link onClick={handleLogout}>Logout</Link></li>
               </ul>
             </div>}
