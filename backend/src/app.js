@@ -6,6 +6,7 @@ import userRouter from "./routes/userRoutes.js";
 import cartRouter from "./routes/cartRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import { errorHandler } from "./middlewares/errorHandler.js";
+import path from "path";
 
 const app = express();
 
@@ -21,6 +22,8 @@ app.use(cors({
     allowedHeaders: ["Content-Type", "Authorization", "X-Requested-With", "Accept"],
     exposedHeaders: ["set-cookie"]
 }));
+
+const __dirname = path.resolve();
 
 app.use("/api/food", foodRouter);
 app.use("/api/user", userRouter);
