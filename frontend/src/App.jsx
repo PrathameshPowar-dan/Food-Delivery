@@ -9,7 +9,7 @@ import { useThemeStore } from './Context/useThemeStore.js';
 import Login from './components/Login.jsx';
 import { axiosInstance } from './Context/axios.js';
 import { StoreContext } from './Context/StoreContext.jsx';
-import Verify from './pages/verify.jsx';
+import Verify from './pages/V.jsx'
 import MyOrders from './pages/myorders.jsx';
 import Contact from './pages/Contact.jsx';
 
