@@ -49,8 +49,8 @@ export const placeOrder = asyncHandler(async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             line_items: line_items,
             mode: 'payment',
-            success_url: 'http://localhost:5173/verify?success=true&orderId=' + newOrder._id,
-            cancel_url: 'http://localhost:5173/verify?success=false&orderId=' + newOrder._id,
+            success_url: 'https://dans-den.onrender.com/verify?success=true&orderId=' + newOrder._id,
+            cancel_url: 'https://dans-den.onrender.com/verify?success=false&orderId=' + newOrder._id,
         });
 
         return res.status(200).json(
