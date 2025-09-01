@@ -8,7 +8,6 @@ router.post("/place-order", AuthToken, placeOrder);
 router.post("/verify-order", AuthToken, verifyOrder);
 router.get("/myorders", AuthToken, getOrders);
 router.get("/list-orders", listOrders);
-router.post("/list-orders", listOrders);
 router.post("/update-status", updateStatus);
 
 export default router;
