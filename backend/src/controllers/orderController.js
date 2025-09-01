@@ -90,3 +90,27 @@ export const getOrders = asyncHandler(async (req, res) => {
         new ApiResponse(200, orders, "Orders fetched successfully")
     );
 })
+
+export const listOrders = asyncHandler(async (req, res) => {
+    try {
+        const Orders = await Order.find({});
+        res.status(200).json(new ApiResponse(200, Orders, "Orders fetched successfully"));
+    } catch (error) {
+        console.log("Error fetching orders:", error);
+        throw new ApiError(500, "Failed to fetch orders");
+    }
+});
+
+export const updateStatus = asyncHandler(async (req, res) => {
+    try {
+        const { orderId, status } = req.body;
+        const order = await Order.findByIdAndUpdate(orderId, { status }, { new: true });
+        if (!order) {
+            return res.status(404).json(new ApiResponse(404, null, "Order not found"));
+        }
+        res.status(200).json(new ApiResponse(200, order, "Order status updated successfully"));
+    } catch (error) {
+        console.log("Error updating order status:", error);
+        throw new ApiError(500, "Failed to update order status");
+    }
+})

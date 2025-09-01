@@ -24,62 +24,84 @@ const Navbar = ({ setShowLogin }) => {
                             </svg>
                         </div>
                         <ul tabIndex={0} className="dropdown-content bg-base-300 rounded-box z-50 w-52 p-2 shadow-2xl">
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Default"
-                                    value="light"
-                                    checked={theme === "light"}
-                                    onChange={() => setTheme("light")}
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Retro"
-                                    value="retro"
-                                    checked={theme === "retro"}
-                                    onChange={() => setTheme("retro")}
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Cyberpunk"
-                                    value="cyberpunk"
-                                    checked={theme === "cyberpunk"}
-                                    onChange={() => setTheme("cyberpunk")}
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Valentine"
-                                    value="valentine"
-                                    checked={theme === "valentine"}
-                                    onChange={() => setTheme("valentine")}
-                                />
-                            </li>
-                            <li>
-                                <input
-                                    type="radio"
-                                    name="theme-dropdown"
-                                    className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
-                                    aria-label="Aqua"
-                                    value="aqua"
-                                    checked={theme === "aqua"}
-                                    onChange={() => setTheme("aqua")}
-                                />
-                            </li>
-                        </ul>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Default"
+                  value="light"
+                  checked={theme === "light"}
+                  onChange={() => setTheme("light")}
+                />
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Retro"
+                  value="retro"
+                  checked={theme === "retro"}
+                  onChange={() => setTheme("retro")}
+                />
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Cyberpunk"
+                  value="cyberpunk"
+                  checked={theme === "cyberpunk"}
+                  onChange={() => setTheme("cyberpunk")}
+                />
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Luxury"
+                  value="luxury"
+                  checked={theme === "luxury"}
+                  onChange={() => setTheme("luxury")}
+                />
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Caramellatte"
+                  value="caramellatte"
+                  checked={theme === "caramellatte"}
+                  onChange={() => setTheme("caramellatte")}
+                />
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Valentine"
+                  value="valentine"
+                  checked={theme === "valentine"}
+                  onChange={() => setTheme("valentine")}
+                />
+              </li>
+              <li>
+                <input
+                  type="radio"
+                  name="theme-dropdown"
+                  className="theme-controller btn btn-sm btn-block btn-ghost justify-start"
+                  aria-label="Aqua"
+                  value="aqua"
+                  checked={theme === "aqua"}
+                  onChange={() => setTheme("aqua")}
+                />
+              </li>
+            </ul>
                     </div>
                 </div>
                 <div className="navbar-center">
