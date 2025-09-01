@@ -7,7 +7,6 @@ const Cart = () => {
   const { cartItems, food_list, addToCart, removeFromCart, getTotalCartAmount } =
     useContext(StoreContext);
 
-  // Get cart items that have quantity > 0
   const getCartItems = () => {
     return food_list.filter(item => cartItems[item._id] > 0);
   };
@@ -27,7 +26,6 @@ const Cart = () => {
         </h2>
 
         {getCartCount() === 0 ? (
-          // Empty Cart
           <div className="flex flex-col items-center justify-center py-5 text-center">
             <img
               src={emptyCartImage}

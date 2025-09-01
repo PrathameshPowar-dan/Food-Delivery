@@ -16,7 +16,6 @@ const App = () => {
   const { theme } = useThemeStore();
 
   useEffect(() => {
-    // Apply the theme to the html element for DaisyUI
     document.documentElement.setAttribute('data-theme', theme);
   }, [theme]);
 

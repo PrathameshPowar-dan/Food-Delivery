@@ -34,7 +34,7 @@ export const placeOrder = asyncHandler(async (req, res) => {
             quantity: item.quantity
         }));
 
-        // Add delivery charges
+        
         line_items.push({
             price_data: {
                 currency: "inr",
