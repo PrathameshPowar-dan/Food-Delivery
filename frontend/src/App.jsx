@@ -10,6 +10,7 @@ import { useThemeStore } from './Context/useThemeStore.js';
 import Login from './components/Login.jsx';
 import { axiosInstance } from './Context/axios.js';
 import { StoreContext } from './Context/StoreContext.jsx';
+import Verify from './pages/verify.jsx';
 
 const App = () => {
   const { theme } = useThemeStore();
@@ -48,6 +49,7 @@ const App = () => {
         <Route path='/cart' element={<Cart />} />
         <Route path='/place-order' element={<PlaceOrder />} />
         <Route path='/settings' element={<Settings />} />
+        <Route path='/verify' element={<Verify />} />
       </Routes>
       <Footer />
     </>
