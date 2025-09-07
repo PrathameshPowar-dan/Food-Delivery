@@ -2,6 +2,60 @@ import React, { useContext } from "react";
 import { StoreContext } from "../Context/StoreContext";
 import emptyCartImage from "../assets/empty-cart.png";
 import { Link, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+
+const FloatingBg = () => {
+  const foods = [
+    "🍔",
+    "🍕",
+    "🌭",
+    "🍟",
+    "🥗",
+    "🍣",
+    "🍤",
+    "🥟",
+    "🍝",
+    "🌮",
+    "🌯",
+    "🥪",
+    "🍲",
+    "🥘",
+    "🍗",
+    "🥞",
+    "🍦",
+    "🍩",
+    "🍪",
+    "🍫",
+    "🥤"
+  ];
+
+  return (
+    <div className="absolute inset-0 -z-10 overflow-hidden">
+      {foods.map((food, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-7xl sm:text-8xl opacity-70 drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+          style={{
+            top: `${Math.random() * 50 + 20}%`, // 20% to 70%
+            left: `${Math.random() * 80 + 10}%`, // still 10% to 90%
+          }}
+          animate={{
+            y: [0, -80, 0],
+            rotate: [0, 20, -20, 0],
+          }}
+          transition={{
+            duration: 15 + i * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          {food}
+        </motion.div>
+      ))}
+    </div>
+
+  );
+};
 
 const Cart = () => {
   const { cartItems, food_list, addToCart, removeFromCart, getTotalCartAmount } =
@@ -18,7 +72,9 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen bg-base-200 py-10 px-4">
+    <div className="min-h-screen relative bg-transparent py-10 px-4">
+      <FloatingBg />
+      <div className="absolute inset-0 bg-base-100/20 backdrop-blur-xs -z-10" />
       <div className="max-w-6xl mx-auto">
         {/* Cart Header */}
         <h2 className="text-3xl font-bold text-center mb-8 text-base-content">

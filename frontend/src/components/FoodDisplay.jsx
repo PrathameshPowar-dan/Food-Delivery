@@ -4,7 +4,29 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
 const FloatingBg = () => {
-  const foods = ["🍔", "🍕", "🍣", "🌮", "🍦", "🥗", "🍟", "🍩"];
+  const foods = [
+    "🍔",
+    "🍕",
+    "🌭",
+    "🍟",
+    "🥗",
+    "🍣",
+    "🍤",
+    "🥟",
+    "🍝",
+    "🌮",
+    "🌯",
+    "🥪",
+    "🍲",
+    "🥘",
+    "🍗",
+    "🥞",
+    "🍦",
+    "🍩",
+    "🍪",
+    "🍫",
+    "🥤"
+  ];
 
   return (
     <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -115,7 +137,7 @@ const FoodDisplay = ({ category }) => {
                 </div>
 
                 {/* Content */}
-                <div className="p-4 flex flex-col justify-between h-40">
+                <div className="p-4 flex flex-col justify-between bg-transparent h-40">
                   <div>
                     <h3 className="text-lg font-semibold text-base-content line-clamp-1">
                       {food.name}
