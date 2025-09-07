@@ -95,7 +95,7 @@ const FoodDisplay = ({ category }) => {
                 className="bg-base-100 rounded-2xl shadow-lg hover:shadow-2xl overflow-hidden border-2 border-base-300 transition-all duration-300 relative"
               >
                 {/* Image with Add-to-Cart */}
-                <div className="relative h-52 sm:h-56 lg:h-64 w-full overflow-hidden bg-base-200 rounded-t-2xl">
+                <div className="relative h-52 sm:h-56 lg:h-64 w-full overflow-hidden bg-transparent rounded-t-2xl">
                   <img
                     src={food.image}
                     alt={food.name}
