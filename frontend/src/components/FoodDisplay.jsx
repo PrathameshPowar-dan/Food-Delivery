@@ -93,7 +93,7 @@ const FoodDisplay = ({ category }) => {
                       className="flex items-center gap-2 bg-primary text-primary-content px-3 py-1.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 active:scale-95"
                     >
                       <img
-                        src="../assets/checkout.svg"
+                        src="./assets/checkout.svg"
                         alt="checkout"
                         className="w-4 h-4"
                       />
