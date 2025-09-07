@@ -3,22 +3,22 @@ import { axiosInstance } from '../Context/axios';
 import { motion } from "framer-motion";
 
 const FloatingBg = () => {
-      const foods = [
-    "🍔",
-    "🍕",
-    "🌭",
-    "🍟",
-    "🥗",
-    "🍣",
-    "🍤",
-    "🥟",
-    "🍝",
-    "🌮",
-    "🌯",
-    "🥪",
-    "🍲",
-    "🥘"
-  ];
+    const foods = [
+        "🍔",
+        "🍕",
+        "🌭",
+        "🍟",
+        "🥗",
+        "🍣",
+        "🍤",
+        "🥟",
+        "🍝",
+        "🌮",
+        "🌯",
+        "🥪",
+        "🍲",
+        "🥘"
+    ];
 
     return (
         <div className="absolute inset-0 -z-10 overflow-hidden">
@@ -135,9 +135,9 @@ const MyOrders = () => {
 
     return (
         <div className="min-h-[64vh] relative py-8 px-4 bg-base-300">
-            <FloatingBg />
-            <div className="absolute inset-0 bg-base-100/20 backdrop-blur-xs -z-10" />
             <div className="max-w-4xl mx-auto">
+                <FloatingBg />
+                <div className="absolute inset-0 bg-base-100/20 backdrop-blur-xs -z-10" />
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold mb-2">My Orders</h1>
                     <p className="text-base-content/70">Your order history and tracking</p>
