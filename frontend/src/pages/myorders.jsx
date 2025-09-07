@@ -134,7 +134,7 @@ const MyOrders = () => {
     }
 
     return (
-        <div className="min-h-[64vh] relative py-8 px-4 bg-base-300">
+        <div className="min-h-[64vh] relative py-8 px-4 bg-transparent">
             <div className="max-w-4xl mx-auto">
                 <FloatingBg />
                 <div className="absolute inset-0 bg-base-100/20 backdrop-blur-xs -z-10" />
