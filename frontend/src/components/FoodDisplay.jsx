@@ -3,17 +3,50 @@ import { StoreContext } from "../Context/StoreContext";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
+const FloatingBg = () => {
+  const foods = ["🍔", "🍕", "🍣", "🌮", "🍦", "🥗", "🍟", "🍩"];
+
+  return (
+    <div className="absolute inset-0 -z-10 overflow-hidden">
+      {foods.map((food, i) => (
+        <motion.div
+          key={i}
+          className="absolute text-7xl sm:text-8xl opacity-70 drop-shadow-[0_0_10px_rgba(0,0,0,0.3)]"
+          style={{
+            top: `${Math.random() * 50 + 20}%`, // 20% to 70%
+            left: `${Math.random() * 80 + 10}%`, // still 10% to 90%
+          }}
+          animate={{
+            y: [0, -80, 0],
+            rotate: [0, 20, -20, 0],
+          }}
+          transition={{
+            duration: 15 + i * 2,
+            repeat: Infinity,
+            ease: "easeInOut",
+          }}
+        >
+          {food}
+        </motion.div>
+      ))}
+    </div>
+
+  );
+};
+
 const FoodDisplay = ({ category }) => {
   const { food_list, cartItems, addToCart, removeFromCart } =
     useContext(StoreContext);
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
-    const handleCheckout = () => {
-      navigate("/cart");
-    };
+  const handleCheckout = () => {
+    navigate("/cart");
+  };
   return (
     <section className="relative py-12 px-4 max-w-6xl mx-auto" id="order">
+      <FloatingBg />
+      <div className="absolute inset-0 bg-base-100/20 backdrop-blur-xs -z-10" />
       {/* Header */}
       <div className="text-center mb-10">
         <h2 className="text-3xl sm:text-4xl font-bold text-base-content">
