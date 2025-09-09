@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="mr">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>🍱 स्वादिष्ट घरगुती टिफिन सर्व्हिस</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2:wght@600;700&family=Roboto:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --green: #2fa84f;
+            --orange: #ff7a2d;
+            --yellow: #ffd54a;
+            --bg-gradient: linear-gradient(to right, #ded4b2, #d6922b6f);
+            --glass: rgba(255, 255, 255, 0.9);
+        }
+
+        @page {
+            size: A5 portrait;
+            margin: 10mm;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Roboto', system-ui, Arial;
+            background: var(--bg-gradient);
+            color: #222;
+        }
+
+        .pamphlet {
+            margin: auto;
+            width: 148mm;
+            height: 210mm;
+            box-sizing: border-box;
+            padding: 14mm;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #fffde7cc, #fff3e0cc);
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: 0 4px 14px #ffd54a77;
+        }
+
+        header .title {
+            font-family: 'Baloo Bhai 2', cursive;
+            font-size: 28px;
+            color: var(--orange);
+            text-shadow: 0 2px 8px #ffecb3;
+            font-weight: 700;
+        }
+
+        header .tag {
+            font-size: 13px;
+            color: #444;
+            margin-top: 6px;
+        }
+
+        header .right {
+            text-align: right;
+            font-size: 14px;
+            color: #444;
+            line-height: 1.4;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 18px;
+            background: linear-gradient(90deg, #fff9f2cc, #ffe0b2cc);
+            border-radius: 16px;
+            box-shadow: 0 3px 16px #ffd54a55;
+        }
+
+        .badge {
+            background: var(--glass);
+            border-radius: 12px;
+            padding: 8px 14px;
+            text-align: center;
+            box-shadow: 0 2px 12px #ffd54a99;
+        }
+
+        .badge .emoji {
+            font-size: 26px;
+        }
+
+        .section {
+            background: var(--glass);
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 2px 14px #ffd54a44;
+        }
+
+        .section h2 {
+            margin: 0 0 12px 0;
+            font-size: 18px;
+            color: var(--orange);
+            font-family: 'Baloo Bhai 2', cursive;
+            text-shadow: 0 1px 8px #fff3e080;
+        }
+
+        .icons-row {
+            display: flex;
+            gap: 20px;
+            justify-content: space-around;
+        }
+
+        .icon-item {
+            text-align: center;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .icon-item .ico {
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .food-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px;
+            border-radius: 10px;
+            background: #fffaf0;
+            border: 1px solid #ffe082;
+            box-shadow: 0 2px 8px #ffd54a55;
+            transition: transform 0.2s;
+        }
+
+        .food-card:hover {
+            transform: scale(1.03);
+        }
+
+        .food-card img {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .check {
+            width: 20px;
+            height: 20px;
+            background: var(--green);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .price-box {
+            background: linear-gradient(90deg, #fff9e6, #ffe0b2cc);
+            padding: 12px 16px;
+            border-radius: 14px;
+            box-shadow: 0 3px 14px #ffd54a55;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--orange);
+        }
+
+        .note {
+            font-size: 12px;
+            color: #555;
+        }
+
+        footer {
+            margin-top: auto;
+            padding-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+        }
+
+        footer .phones {
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        @media print {
+            body {
+                background: white;
+            }
+
+            .pamphlet {
+                box-shadow: none;
+                padding: 10mm;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="pamphlet">
+        <header>
+            <div>
+                <div class="title">🍱 स्वादिष्ट घरगुती टिफिन सर्व्हिस</div>
+                <div class="tag">स्वाद घरचा… सेवा आमची!</div>
+            </div>
+            <div class="right">
+                <div><b>Trustworthy • Hygienic • Homely</b></div>
+                <div style="color:var(--green);font-weight:700">बजेट-फ्रेंड्ली दर</div>
+            </div>
+        </header>
+
+        <div class="hero">
+            <div class="hero-left" style="display:flex;gap:12px;align-items:center;">
+                <div class="badge">
+                    <div class="emoji">🥗</div>
+                    <div style="font-size:12px;">घरचा स्वाद</div>
+                </div>
+                <div>
+                    <div style="font-weight:700;font-size:16px;color:var(--orange)">संपूर्ण ताजे आणि घरगुती पदार्थ</div>
+                    <div style="font-size:13px;color:#555;">स्वच्छ, रुचकर आणि वेळेवर पोहचवतो</div>
+                </div>
+            </div>
+            <div class="hero-right">रुचकर • पौष्टिक • रोजच्या गरजेसाठी</div>
+        </div>
+
+        <div class="section">
+            <h2>योग्य कोणासाठी?</h2>
+            <div class="icons-row">
+                <div class="icon-item">
+                    <div class="ico">👩‍💼</div>ऑफिस कर्मचारी
+                </div>
+                <div class="icon-item">
+                    <div class="ico">🎒</div>विद्यार्थी
+                </div>
+                <div class="icon-item">
+                    <div class="ico">🏠</div>एकटे राहणारे
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>आमच्या थाळीत काय मिळेल?</h2>
+            <div class="food-grid">
+                <div class="food-card"><img
+                        src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/546f925d-ea4b-4666-b1e1-6f02e8fa45e3.png"
+                        alt="Chapati">
+                    <div>चपाती</div>
+                </div>
+                <div class="food-card"><img
+                        src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/e1c77c26-b4a8-42da-924f-05f6125dd7a3.png"
+                        alt="Rice">
+                    <div>भात</div>
+                </div>
+                <div class="food-card"><img
+                        src="https://user-gen-media-assets.s3.amazonaws.com/gpt4o_images/92ab21c3-3c6c-4e61-aa8d-f72b8e2203db.png"
+                        alt="Dal">
+                    <div>डाळ</div>
+                </div>
+                <div class="food-card"><img
+                    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1g9pArVLhLb001ie9DxbOmDXiAlmjoqUWFXQwWqtbrV7lQZF0tkt1_iV_M5w87OCXJYpiQKePBso7yS2_0tv3Ahd7BOR5Gx6zBLMm-rt1fnze3NDp3vEA_Jnlt2RVgSU4H0zXl6uPSFQLXNh_jQmh6CuasKeYpFdf4zYVx68JVgCkveiiKxI2CuwWzWE/s374/photo1692606288.jpeg" alt="Pickle">
+                    <div>भाजी</div>
+                </div>
+                <div class="food-card"><img
+                    src="https://tiimg.tistatic.com/fp/1/005/671/mango-pickle-aam-ka-aachar--515.jpg" alt="Pickle">
+                    <div>लोणचं</div>
+                </div>
+                <div class="food-card"><img
+                        src="https://www.eatingwell.com/thmb/SgJu29l-PDb9YarmY5BnGAbwP0w=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/eat-the-rainbow-chopped-salad-with-basil-mozzarella-beauty-184-278133-4000x4000-ef8f3f0ad7134d2b860c51f5e7b38ce5.jpg"
+                        alt="Salad">
+                    <div>सलाड</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>आमच्या सुविधा</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="check">✓</div> लंच & डिनर
+                </div>
+                <div class="feature">
+                    <div class="check">✓</div> मासिक प्लॅन
+                </div>
+                <div class="feature">
+                    <div class="check">✓</div> वेळेवर वितरण
+                </div>
+                <div class="feature">
+                    <div class="check">✓</div> वेज / नॉन-वेज पर्याय
+                </div>
+            </div>
+        </div>
+
+        <div class="price-box">
+            <div>
+                <div style="font-size:13px;color:#555;">प्रति प्लेट</div>
+                <div class="price">वेज ₹50 | नॉन-वेज ₹70</div>
+                <div class="note">मासिक प्लॅनवर सवलत उपलब्ध</div>
+            </div>
+            <div style="text-align:right;font-size:12px;">
+                <div>स्वच्छता • हायजीन • ताजेपणा</div>
+            </div>
+        </div>
+
+        <footer>
+            <div style="margin-bottom: 20px;">
+                <div style="font-size:12px;color:#555;">संपर्क करा</div>
+                <div class="phones">📞 9867525282 / 8652619597</div>
+                <div style="font-size:12px;color:#666;">📍 साई माऊली चाळ, गणेश नगर, नायगाव पूर्व</div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
